@@ -1,8 +1,15 @@
 <script>
+import { createEventDispatcher } from "svelte";
+
+
     let username;
     let password;
 
-    const login = () => {};
+    const dispatch = createEventDispatcher();
+
+    const login = () => {
+        dispatch('login');
+    };
     const signup = () => { alert('Signed Up!') };
 </script>
 
@@ -24,10 +31,10 @@
             </div>
         </div>
         <div class="buttons">
-            <button>
+            <button on:click={login} >
                 Log in
             </button>
-            <button on:click={signup}>
+            <button on:click={signup} >
                 Sign up
             </button>
         </div>
